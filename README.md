@@ -1,4 +1,4 @@
-# -C---Manager-de-Fi-iere-CLI
+# -C-Manager-de-Fisiere-CLI
 Funcționalități: 
 Listarea fișierelor dintr-un director  Crearea,ștergerea și redenumirea fișierelor  
 Căutarea unui fișier după nume  
