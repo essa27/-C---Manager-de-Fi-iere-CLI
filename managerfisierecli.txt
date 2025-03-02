@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dirent.h>
+#include <sys/stat.h>
+
+void list_files(const char *path) {
+    struct dirent *entry;
+    DIR *dir = opendir(path);
+
+    if (dir == NULL) {
+        perror("Eroare la deschiderea directorului");
+        return;
+    }
+
+    printf("Fișiere în %s:\n", path);
+    while ((entry = readdir(dir)) != NULL) {
+        printf("%s\n", entry->d_name);
+    }
+    closedir(dir);
+}
+
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        printf("Utilizare: %s <list | create | delete> <nume_fisier | director>\n", argv[0]);
+        return 1;
+    }
+
+    if (strcmp(argv[1], "list") == 0) {
+        list_files(argv[2]);
+    }
+    return 0;
+}
